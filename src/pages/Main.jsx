@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import backgroundImage from "../assets/backgroundImage.png"; 
-import FooterPopup from '../components/footerPopup';
+import FooterPopup from '../components/FooterPopup';
 import { useCamContext } from "../hooks/useCamContext";
 
 const Main = () => {
