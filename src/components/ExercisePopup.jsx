@@ -15,7 +15,6 @@ const styles = {
     margin: '0 auto',
     padding: '16px',
     overflow: 'hidden',
-    zIndex: 1000,
     position: 'fixed',
     top: '43%',
     left: '50%',
