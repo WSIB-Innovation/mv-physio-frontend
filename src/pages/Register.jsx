@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, TextField, Typography, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../hooks/useLogin';
+import { useSignup } from '../hooks/useSignup';
 
 const styles = {
   container: {
@@ -51,14 +51,15 @@ const styles = {
   },
 };
 
-const Login = () => {
-  const [identifier, setIdentifier] = useState('');
+const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { login, error, isLoading } = useLogin(); 
+  const { signup, error, isLoading } = useSignup();
 
-  const handleLogin = async () => {
-    await login(identifier, password);
+  const handleSignup = async () => {
+    await signup(email, username, password);
   };
 
   const handleBack = () => {
@@ -72,14 +73,21 @@ const Login = () => {
           <ArrowBackIcon />
         </IconButton>
         <Typography variant="h5" sx={styles.title}>
-          Login
+          Register
         </Typography>
         <TextField
-          label="Email or Username"
+          label="Email"
           variant="outlined"
           sx={styles.textField}
-          value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          label="Username"
+          variant="outlined"
+          sx={styles.textField}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <TextField
           label="Password"
@@ -89,12 +97,12 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button variant="contained" sx={styles.button} onClick={handleLogin}>
-          Login
+        <Button variant="contained" sx={styles.button} onClick={handleSignup}>
+          Sign up
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default Login;
+export default Signup;

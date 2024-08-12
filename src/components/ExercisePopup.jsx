@@ -11,21 +11,25 @@ import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 
 const styles = {
-    modalBox: {
-      position: 'fixed',
-      top: '43%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: '75%',
-      height: '68%',
-      bgcolor: 'background.paper',
-      boxShadow: 24,
-      p: 4,
-      outline: 'none',
-      borderRadius: '12px',
-      zIndex: 1000, 
-    },
-  };
+  modalBox: {
+    margin: '0 auto',
+    padding: '16px',
+    overflow: 'hidden',
+    zIndex: 1000,
+    position: 'fixed',
+    top: '43%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '75%',
+    height: '68%',
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+    outline: 'none',
+    borderRadius: '12px',
+    zIndex: 1000,
+}
+};
 
 const exercises = [
   { label: 'Pushups', target: ['Chest', 'Shoulder', 'Triceps'], category: 'Upper Body' },
@@ -98,7 +102,7 @@ const ExercisePopup = ({ open, handleClose, onSelectExercise }) => {
         sx={{ marginBottom: 2 }}
       />
 
-      <Box sx={{ display: 'flex', gap: 1, marginBottom: 2 }}>
+      <Box sx={{ display: 'flex', gap: 1, marginBottom: 2, flexWrap: 'wrap' }}>
         {['Upper Body', 'Lower Body', 'Core', 'Free weight', 'Bodyweight', 'All'].map((chip) => (
           <Chip
             key={chip}
@@ -110,28 +114,31 @@ const ExercisePopup = ({ open, handleClose, onSelectExercise }) => {
         ))}
       </Box>
 
-      <List>
-        {filteredExercises.map((exercise, index) => (
-          <ListItem
-            button
-            key={index}
-            onClick={() => handleExerciseSelect(exercise)}
-          >
-            <ListItemIcon>
-              <img
-                loading="lazy"
-                width="20"
-                src={require(`../assets/icons/${exercise.label.toLowerCase()}.png`)}
-                alt=""
+      <Box sx={{ maxHeight: '400px', overflowY: 'auto' }}>
+        <List>
+          {filteredExercises.map((exercise, index) => (
+            <ListItem
+              button
+              key={index}
+              onClick={() => handleExerciseSelect(exercise)}
+            >
+              <ListItemIcon>
+                <img
+                  loading="lazy"
+                  width="20"
+                  src={require(`../assets/icons/${exercise.label.toLowerCase()}.png`)}
+                  alt=""
+                />
+              </ListItemIcon>
+              <ListItemText
+                primary={highlightText(exercise.label, searchTerm)}
+                secondary={exercise.target.join(' · ')}
               />
-            </ListItemIcon>
-            <ListItemText
-              primary={highlightText(exercise.label, searchTerm)}
-              secondary={exercise.target.join(' · ')}
-            />
-          </ListItem>
-        ))}
-      </List>
+            </ListItem>
+          ))}
+        </List>
+
+      </Box>
     </Box>
   );
 };

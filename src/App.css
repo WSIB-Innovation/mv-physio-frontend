@@ -111,9 +111,11 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  overflow: hidden;
+  overflow: auto;
   gap: 88px;
   bottom: 0;
+  padding: 20px;
+  min-height: 100vh;
 }
 
 .landing-page img {
@@ -139,6 +141,8 @@
   align-items: center;
   justify-content: center;
   gap: 32px;
+  margin-bottom: 20px;
+  min-height: 50px;
 }
 
 .text {

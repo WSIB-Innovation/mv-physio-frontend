@@ -12,6 +12,10 @@ const Landing = () => {
     navigate("/login");
   };
 
+  const handleSignupClick = () => {
+    navigate("/register");
+  }
+
   const handleContinueAsGuest = () => {
     navigate("/main");
   };
@@ -20,7 +24,6 @@ const Landing = () => {
     <div className="landing-page">
       <div className="top-part">
         <Tag />
-
         <div className="text">
           <div className="title">Machine Vision</div>
           <div className="sub-title">
@@ -30,7 +33,7 @@ const Landing = () => {
         <div className="landing-bottom-container">
           <div className="button-container">
             <SecondaryButton text="Log in" onClick={handleSignInClick} />
-            <StartButton />
+            <StartButton onClick={handleSignupClick} />
           </div>
           <p>- or -</p>
           <h3 
