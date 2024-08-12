@@ -125,7 +125,7 @@ const ExercisePopup = ({ open, handleClose, onSelectExercise }) => {
                 <img
                   loading="lazy"
                   width="20"
-                  src={require(`../assets/icons/${exercise.label.toLowerCase()}.png`)}
+                  src={`/assets/icons/${exercise.label.toLowerCase()}.png`}
                   alt=""
                 />
               </ListItemIcon>

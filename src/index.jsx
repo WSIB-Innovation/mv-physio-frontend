@@ -13,7 +13,6 @@ ReactDOM.render(
     <AuthContextProvider>
       <BrowserRouter>
       <CamProvider>
-
         <App />
       </CamProvider>
       </BrowserRouter>
