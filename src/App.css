@@ -106,22 +106,21 @@
 /* LANDING PAGE STYLING */
 .landing-page {
   display: flex;
-  width: 100vw;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  position: absolute;
-  overflow: auto;
-  gap: 88px;
-  bottom: 0;
-  padding: 20px;
+  width: 100%;
   min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .landing-page img {
-  width: 50%;
+  width: 100%;
   height: auto;
   max-width: 800px;
+  object-fit: contain;
+  flex-grow: 1;
 }
 
 .sub-title {
@@ -141,8 +140,9 @@
   align-items: center;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 20px;
-  min-height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .text {
@@ -222,14 +222,18 @@
 
 .tag {
   display: flex;
-  padding: 8px 12px;
   justify-content: center;
-  width: 192px;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 0 auto; /* Centers the tag horizontally */
+  max-width: 90%; /* Ensures it doesn't overflow on smaller screens */
+  width: 192px; /* Sets the width */
   gap: 12px;
   border-radius: 56px;
   border: 1px solid #d7e2fe;
   background: #f5f9ff;
 }
+
 
 .button-container {
   display: flex;
@@ -263,7 +267,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin: 0;
+  margin-bottom: 40px
 }
 
 /* Video Page*/
