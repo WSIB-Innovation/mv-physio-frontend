@@ -21,7 +21,7 @@ jobs:
       - name: Set up node.js
         uses: actions/setup-node@v3
         with: 
-          node-version: '17.x'
+          node-version: '18.x'
 
       - name: Install dependencies
         run: npm install
@@ -36,5 +36,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
+          output_location: 'dist'
+
           
           ###### End of Repository/Build Configurations ######
